@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 import tensorflow_hub as hub
 
-# Load the pre-trained MobileNetV2 model from TensorFlow Hub
+
 model_url = "https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1"
 model = hub.load(model_url)
 
@@ -22,7 +22,7 @@ predictions = model(input_image)
 # Get the class label with the highest probability
 predicted_label = np.argmax(predictions.numpy()[0])
 
-# Load the ImageNet labels (labels for MobileNetV2)
+
 labels_path = "https://storage.googleapis.com/download.tensorflow.org/data/ImageNetLabels.txt"
 labels = tf.keras.utils.get_file("ImageNetLabels.txt", labels_path)
 with open(labels) as f:
